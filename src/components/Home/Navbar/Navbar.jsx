@@ -82,14 +82,14 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <div className="btn hover:text-white btn-accent">
+          <div className="btn hover:text-white btn-accent hover:text-xl">
             <NavLink to={"/login"}>Log In</NavLink>
           </div>
         )}
         {user ? (
           ""
         ) : (
-          <div className="btn btn-success hover:text-white">
+          <div className="btn btn-success hover:text-white hover:text-xl">
             <NavLink to={"/register"}>Register</NavLink>
           </div>
         )}
