@@ -98,7 +98,7 @@ const Navbar = () => {
                 <img src={user?.photoURL} />
               </div>
             </div>
-            <p className="absolute top-14">{user?.displayName}</p>
+            <p className="absolute top-14 text-nowrap">{user?.displayName}</p>
           </div>
         ) : (
           <div className="btn hover:text-white btn-accent hover:text-xl">
