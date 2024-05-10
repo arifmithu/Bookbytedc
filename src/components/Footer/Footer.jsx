@@ -1,25 +1,24 @@
 import React from "react";
+import { GiBookAura } from "react-icons/gi";
+import "../../index.css";
 
 const Footer = () => {
   return (
-    <div className="mt-5">
-      <footer class="bg-white dark:bg-gray-900">
-        <div class="container p-6 mx-auto">
+    <div className="mt-5 ">
+      <footer class="bg-white dark:bg-gray-600">
+        <div class="container py-6 mx-auto">
           <div class="lg:flex">
             {/* left section */}
-            <div class="w-full -mx-6 lg:w-2/5 lg:text-left">
+            <div class="w-full mx-auto pl-24 lg:pl-0 lg:w-2/5 lg:text-left">
               <div class="px-6 mx-auto">
-                <a href="#">
-                  <img
-                    class="w-auto h-7"
-                    src="https://merakiui.com/images/full-logo.svg"
-                    alt=""
-                  />
-                </a>
+                <div className="flex items-center text-3xl gap-2">
+                  <GiBookAura className="text-blue-500" />
+                  <a className="font-bold gradient">BookByte DC</a>
+                </div>
 
                 <p class="max-w-sm mt-2 text-gray-500 dark:text-gray-400">
-                  Join 31,000+ other and never miss out on new tips, tutorials,
-                  and more.
+                  Join with us to have the access of 500K books and a community
+                  of 20K people.
                 </p>
 
                 <div class="flex mt-6 -mx-2">
@@ -72,9 +71,9 @@ const Footer = () => {
             </div>
             {/* right section */}
             <div class="mt-6 lg:mt-0 lg:flex-1">
-              <div class="grid grid-cols-2 text-center lg:text-left gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              <div class="grid grid-cols-2 w-full text-center lg:text-left gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {/* about */}
-                <div>
+                <div className="lg:-ml-8">
                   <h3 class="text-gray-700 uppercase dark:text-white">About</h3>
                   <a
                     href="#"
@@ -96,7 +95,7 @@ const Footer = () => {
                   </a>
                 </div>
                 {/* blog */}
-                <div>
+                <div className="lg:-ml-12">
                   <h3 class="text-gray-700 uppercase dark:text-white">Blog</h3>
                   <a
                     href="#"
@@ -118,7 +117,7 @@ const Footer = () => {
                   </a>
                 </div>
                 {/* products */}
-                <div>
+                <div className="lg:-ml-24">
                   <h3 class="text-gray-700 uppercase dark:text-white">
                     Products
                   </h3>
@@ -142,15 +141,15 @@ const Footer = () => {
                   </a>
                 </div>
                 {/* contacts */}
-                <div>
+                <div className="lg:-ml-24">
                   <h3 class="text-gray-700 uppercase dark:text-white">
                     Contact
                   </h3>
                   <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">
-                    +1 526 654 8965
+                    +88 01676-841637
                   </span>
                   <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">
-                    example@email.com
+                    mdarifhossainmithu@gmail.com
                   </span>
                 </div>
               </div>
@@ -161,7 +160,7 @@ const Footer = () => {
 
           <div>
             <p class="text-center text-gray-500 dark:text-gray-400">
-              © Brand 2020 - All rights reserved
+              © BookByte DC 2024 - All rights reserved
             </p>
           </div>
         </div>
