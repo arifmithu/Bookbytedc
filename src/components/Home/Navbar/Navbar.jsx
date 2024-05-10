@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 import { GiBookAura } from "react-icons/gi";
 import "../../../index.css";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   console.log(user);
 
   useEffect(() => {
@@ -20,6 +21,21 @@ const Navbar = () => {
     const themeValue = e.target.checked;
     if (themeValue) setTheme("synthwave");
     else setTheme("light");
+  };
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        Swal.fire("Log out successful");
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
+      });
   };
   const links = (
     <>
@@ -38,7 +54,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm px-5 lg:px-[80px] shadow-red-400">
+    <div className="navbar bg-base-100 pb-5 shadow-sm px-5 lg:px-[80px] shadow-red-400">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -76,10 +92,13 @@ const Navbar = () => {
       {/* right section */}
       <div className="navbar-end flex gap-3">
         {user ? (
-          <div className="avatar online">
-            <div className="w-24 rounded-full">
-              <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <div className="flex flex-col relative">
+            <div className="avatar online" title={user?.displayName}>
+              <div className="w-14 rounded-full">
+                <img src={user?.photoURL} />
+              </div>
             </div>
+            <p className="absolute top-14">{user?.displayName}</p>
           </div>
         ) : (
           <div className="btn hover:text-white btn-accent hover:text-xl">
@@ -87,7 +106,9 @@ const Navbar = () => {
           </div>
         )}
         {user ? (
-          ""
+          <button onClick={handleLogout} className="btn">
+            Log out
+          </button>
         ) : (
           <div className="btn btn-success hover:text-white hover:text-xl">
             <NavLink to={"/register"}>Register</NavLink>
