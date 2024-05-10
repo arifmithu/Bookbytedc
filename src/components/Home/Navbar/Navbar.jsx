@@ -6,21 +6,38 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
   const { user, logout } = useContext(AuthContext);
   console.log(user);
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    const localTheme = localStorage.getItem("theme");
+    const localTheme = localStorage.getItem("theme") ?? "light";
+    if (localTheme == "synthwave") {
+      setIsChecked(`${localTheme == "light" ? false : true}`);
+    }
     const setLocalTheme = document.querySelector("html");
     setLocalTheme.setAttribute("data-theme", localTheme);
-  }, [theme]);
+  }, []);
 
   const handleThemeChange = (e) => {
     const themeValue = e.target.checked;
-    if (themeValue) setTheme("synthwave");
-    else setTheme("light");
+    console.log(themeValue);
+    if (themeValue) {
+      setIsChecked(!isChecked);
+      localStorage.setItem("theme", "synthwave");
+      const localTheme = localStorage.getItem("theme") ?? "light";
+      const getHtml = document.querySelector("html");
+      getHtml.setAttribute("data-theme", localTheme);
+      setTheme("synthwave");
+    } else {
+      setIsChecked(!isChecked);
+      localStorage.setItem("theme", "light");
+      const localTheme = localStorage.getItem("theme") ?? "light";
+      const getHtml = document.querySelector("html");
+      getHtml.setAttribute("data-theme", localTheme);
+      setTheme("light");
+    }
   };
 
   const handleLogout = () => {
@@ -54,7 +71,13 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 pb-5 shadow-sm px-5 lg:px-[80px] shadow-red-400">
+    <div
+      className={`navbar bg-base-100 pb-5 shadow-sm px-5 lg:px-[80px] shadow-red-400 ${
+        localStorage.getItem("theme") == "synthwave"
+          ? "text-white"
+          : "text-black"
+      }`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -119,6 +142,7 @@ const Navbar = () => {
           <input
             type="checkbox"
             value="synthwave"
+            checked={isChecked}
             onChange={handleThemeChange}
             className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
           />

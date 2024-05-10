@@ -2,8 +2,13 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import auth from "../../../Firebase.config";
+import { FaGithub } from "react-icons/fa6";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
@@ -34,6 +39,18 @@ const Login = () => {
   const googleLogin = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        Swal.fire("Something went wrong ! Try again.");
+      });
+  };
+  const githubProvider = new GithubAuthProvider();
+  const githubLogin = () => {
+    signInWithPopup(auth, githubProvider)
+      .then((result) => {
+        console.log(result.user);
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
@@ -114,7 +131,15 @@ const Login = () => {
               />
             </svg>
 
-            <span class="mx-2">Sign in with Google</span>
+            <span class="mx-2">Login with Google</span>
+          </button>
+          {/* github login */}
+          <button
+            onClick={githubLogin}
+            class="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 w-5/6 mx-auto "
+          >
+            <FaGithub class="w-6 h-6 mx-2" />
+            <span class="mx-2">Login with Github</span>
           </button>
           <p className="mx-auto mb-5 font-bold">
             Don't have an account?{" "}
