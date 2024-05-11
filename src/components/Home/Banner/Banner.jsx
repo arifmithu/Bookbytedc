@@ -8,6 +8,17 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "./style.css";
+import {
+  Bounce,
+  Fade,
+  Flip,
+  Hinge,
+  JackInTheBox,
+  Roll,
+  Rotate,
+  Slide,
+  Zoom,
+} from "react-awesome-reveal";
 
 const Banner = () => {
   const progressCircle = useRef(null);
@@ -44,14 +55,19 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-70"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="w-2/3">
-                <h1 className="mb-5 text-8xl font-bold gradient">
-                  Our Library
-                </h1>
-                <p className="mb-5 text-2xl">
-                  Our library encompasses a comprehensive set of tools,
-                  utilities, and components designed to facilitate software
-                  development by providing extensive functionality and features.
-                </p>
+                <Flip>
+                  <h1 className="mb-5 text-8xl font-bold gradient">
+                    Our Library
+                  </h1>
+                </Flip>
+                <Slide>
+                  <p className="mb-5 text-2xl">
+                    Our library encompasses a comprehensive set of tools,
+                    utilities, and components designed to facilitate software
+                    development by providing extensive functionality and
+                    features.
+                  </p>
+                </Slide>
               </div>
             </div>
           </div>
@@ -67,12 +83,18 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-70"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="w-2/3">
-                <h1 className="mb-5 text-8xl font-bold gradient">Our Books</h1>
-                <p className="mb-5 text-2xl">
-                  We have a big amount of book collections of around 500K
-                  books.We have about all categories of books to help our
-                  readers to enhance their knowledge.
-                </p>
+                <Bounce>
+                  <h1 className="mb-5 text-8xl font-bold gradient">
+                    Our Books
+                  </h1>
+                </Bounce>
+                <Slide>
+                  <p className="mb-5 text-2xl">
+                    We have a big amount of book collections of around 500K
+                    books.We have about all categories of books to help our
+                    readers to enhance their knowledge.
+                  </p>
+                </Slide>
               </div>
             </div>
           </div>
@@ -88,14 +110,18 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="w-2/3">
-                <h1 className="mb-5 text-8xl font-bold gradient">
-                  Our Readers
-                </h1>
-                <p className="mb-5 text-2xl">
-                  We have a community of around 20k readers around the country.
-                  They are so helpful to suggest you the best books of your
-                  interest.So you will find a healthy community here.
-                </p>
+                <Flip>
+                  <h1 className="mb-5 text-8xl font-bold gradient">
+                    Our Readers
+                  </h1>
+                </Flip>
+                <Slide>
+                  <p className="mb-5 text-2xl">
+                    We have a community of around 20k readers around the
+                    country. They are so helpful to suggest you the best books
+                    of your interest.So you will find a healthy community here.
+                  </p>
+                </Slide>
               </div>
             </div>
           </div>
@@ -111,14 +137,18 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="w-2/3">
-                <h1 className="mb-5 text-8xl gradient font-bold">
-                  Our Environment
-                </h1>
-                <p className="mb-5 text-2xl">
-                  You will get pin drop silence here with the best and beautiful
-                  environment. You will have enough space to keep your
-                  concentration alive.
-                </p>
+                <Flip>
+                  <h1 className="mb-5 text-8xl gradient font-bold">
+                    Our Environment
+                  </h1>
+                </Flip>
+                <Slide>
+                  <p className="mb-5 text-2xl">
+                    You will get pin drop silence here with the best and
+                    beautiful environment. You will have enough space to keep
+                    your concentration alive.
+                  </p>
+                </Slide>
               </div>
             </div>
           </div>
@@ -134,14 +164,18 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="w-2/3">
-                <h1 className="mb-5 text-8xl font-bold gradient text-nowrap">
-                  Book Categories
-                </h1>
-                <p className="mb-5 text-2xl">
-                  We are providing about all categories of books now. Besides we
-                  are collecting new books of remaining categories and new
-                  categories to enrich our readers.
-                </p>
+                <Flip>
+                  <h1 className="mb-5 text-8xl font-bold gradient text-nowrap">
+                    Book Categories
+                  </h1>
+                </Flip>
+                <Slide>
+                  <p className="mb-5 text-2xl">
+                    We are providing about all categories of books now. Besides
+                    we are collecting new books of remaining categories and new
+                    categories to enrich our readers.
+                  </p>
+                </Slide>
               </div>
             </div>
           </div>
@@ -157,15 +191,19 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="w-2/3">
-                <h1 className="mb-5 text-8xl font-bold gradient">
-                  Top Writers
-                </h1>
-                <p className="mb-5 text-2xl">
-                  We are connected with the best writers of the world. At the
-                  time of special occations various writers are available at our
-                  place. So it's a great opportunity for our readers to get in
-                  touch of best writers.
-                </p>
+                <Flip>
+                  <h1 className="mb-5 text-8xl font-bold gradient">
+                    Top Writers
+                  </h1>
+                </Flip>
+                <Slide>
+                  <p className="mb-5 text-2xl">
+                    We are connected with the best writers of the world. At the
+                    time of special occations various writers are available at
+                    our place. So it's a great opportunity for our readers to
+                    get in touch of best writers.
+                  </p>
+                </Slide>
               </div>
             </div>
           </div>
@@ -181,15 +219,19 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="w-2/3">
-                <h1 className="mb-5 text-8xl gradient font-bold">
-                  Best Friend
-                </h1>
-                <p className="mb-5 text-2xl">
-                  Books are cherished companions, offering solace, inspiration,
-                  and knowledge. They provide an escape into different worlds
-                  and perspectives, offering comfort and guidance during both
-                  challenging and celebratory moments.
-                </p>
+                <Flip>
+                  <h1 className="mb-5 text-8xl gradient font-bold">
+                    Best Friend
+                  </h1>
+                </Flip>
+                <Slide>
+                  <p className="mb-5 text-2xl">
+                    Books are cherished companions, offering solace,
+                    inspiration, and knowledge. They provide an escape into
+                    different worlds and perspectives, offering comfort and
+                    guidance during both challenging and celebratory moments.
+                  </p>
+                </Slide>
               </div>
             </div>
           </div>
@@ -205,16 +247,20 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="w-2/3">
-                <h1 className="mb-5 text-8xl gradient font-bold">
-                  Boosts Career
-                </h1>
-                <p className="mb-5 text-2xl">
-                  Books are powerful tools for career advancement, offering
-                  valuable insights, knowledge, and skills essential for
-                  professional growth. They provide practical advice,
-                  strategies, and inspiration to navigate the workplace
-                  effectively and achieve career goals.
-                </p>
+                <Flip>
+                  <h1 className="mb-5 text-8xl gradient font-bold">
+                    Boosts Career
+                  </h1>
+                </Flip>
+                <Slide>
+                  <p className="mb-5 text-2xl">
+                    Books are powerful tools for career advancement, offering
+                    valuable insights, knowledge, and skills essential for
+                    professional growth. They provide practical advice,
+                    strategies, and inspiration to navigate the workplace
+                    effectively and achieve career goals.
+                  </p>
+                </Slide>
               </div>
             </div>
           </div>
@@ -230,11 +276,15 @@ const Banner = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
               <div className="w-2/3">
-                <h1 className="mb-5 text-8xl gradient font-bold">Fly Now</h1>
-                <p className="mb-5 text-2xl">
-                  It's the best time to fly in the sky of knowledge. Feel the
-                  open sky of happiness.Let's make a bond to fly.
-                </p>
+                <Flip>
+                  <h1 className="mb-5 text-8xl gradient font-bold">Fly Now</h1>
+                </Flip>
+                <Slide>
+                  <p className="mb-5 text-2xl">
+                    It's the best time to fly in the sky of knowledge. Feel the
+                    open sky of happiness.Let's make a bond to fly.
+                  </p>
+                </Slide>
               </div>
             </div>
           </div>
