@@ -1,14 +1,22 @@
 import React from "react";
+import { Navigate, useNavigate, useNavigation } from "react-router-dom";
 
 const CategoryCard = ({ category }) => {
-  console.log(category.toLowerCase());
+  const navigate = useNavigate();
+  const handleBooksByCategory = (categ) => {
+    console.log(categ);
+    navigate(`books/${categ}`);
+  };
   return (
-    <div className="shadow-xl card bg-base-100 image-full">
+    <div
+      onClick={() => handleBooksByCategory(category)}
+      className="shadow-xl card bg-base-100 image-full"
+    >
       <figure>
         <img
           src={
             category.toLowerCase() == "sci-fi"
-              ? "https://pixabay.com/photos/fantasy-sci-fi-alien-futuristic-6767623/"
+              ? "https://i.ibb.co/C8fHzmh/fantasy-6767623-1920.jpg"
               : category.toLowerCase() == "mystery"
               ? "https://i.ibb.co/d2tHH2P/tombstone-2542946-1920.jpg"
               : category.toLowerCase() == "fiction"
@@ -21,8 +29,8 @@ const CategoryCard = ({ category }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <h2 className="card-title">{category}</h2>
+        <p>Browse all the books of {category} category.</p>
         <div className="justify-end card-actions">
           <button className="btn btn-primary">Buy Now</button>
         </div>

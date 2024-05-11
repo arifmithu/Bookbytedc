@@ -19,6 +19,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
+import BooksByCategory from "./components/BooksByCategory/BooksByCategory.jsx";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,12 @@ const router = createBrowserRouter([
             <AddBook></AddBook>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/books/:category",
+        element: <BooksByCategory></BooksByCategory>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/books/${params.category}`),
       },
     ],
   },

@@ -8,18 +8,16 @@ const BookCategories = () => {
   useEffect(() => {
     fetch("http://localhost:5000/books")
       .then((res) => res.json())
-      .then((data) => setBooks(data));
-  }, []);
-
-  useEffect(() => {
-    const categories = [];
-    books.map((book) => {
-      const category = book.category;
-      if (!categories.includes(category)) {
-        categories.push(category);
-      }
-    });
-    setAllCategories(categories);
+      .then((data) => {
+        const categories = [];
+        data.map((book) => {
+          const category = book.category;
+          if (!categories.includes(category)) {
+            categories.push(category);
+          }
+        });
+        setAllCategories(categories);
+      });
   }, []);
   console.log(allCategories);
   return (
