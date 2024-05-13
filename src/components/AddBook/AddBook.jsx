@@ -8,7 +8,7 @@ const AddBook = () => {
     const form = e.target;
     const bookName = form.bookName.value;
     const authorName = form.authorName.value;
-    const category = form.category.value.toUpperCase();
+    const category = form.category.value.toLowerCase();
     const quantity = Number(form.quantity.value);
     const image = form.image.value;
     const description = form.description.value;
@@ -24,7 +24,7 @@ const AddBook = () => {
       rating,
       tags,
     };
-    fetch("http://localhost:5000/books", {
+    fetch("https://bookbytedc-server.vercel.app/books", {
       method: "POST",
       headers: {
         "content-type": "application/json",

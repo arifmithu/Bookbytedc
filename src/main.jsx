@@ -70,17 +70,21 @@ const router = createBrowserRouter([
         path: "/books/:category",
         element: <BooksByCategory></BooksByCategory>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/books/${params.category}`),
+          fetch(
+            `https://bookbytedc-server.vercel.app/books/${params.category}`
+          ),
       },
       {
         path: "/:id",
         element: <Details></Details>,
-        // loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
+        // loader: ({ params }) => fetch(`https://bookbytedc-server.vercel.app
+        // /${params.id}`),
       },
       {
         path: "/update/:id",
         element: <UpdateBook></UpdateBook>,
-        loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://bookbytedc-server.vercel.app/${params.id}`),
       },
     ],
   },

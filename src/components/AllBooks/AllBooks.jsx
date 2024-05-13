@@ -8,14 +8,14 @@ const AllBooks = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/books")
+    fetch("https://bookbytedc-server.vercel.app/books")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);
 
   // const queryFuntion = async () => {
   //   return await axios
-  //     .get("http://localhost:5000/books")
+  //     .get("https://bookbytedc-server.vercel.app/books")
   //     .then((res) => res.data);
   // };
   // const { data, isError, error, isLoading, status } = useQuery(

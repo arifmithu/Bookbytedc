@@ -23,7 +23,7 @@ const UpdateBook = () => {
     const form = e.target;
     const bookName = form.bookName.value;
     const authorName = form.authorName.value;
-    const category = form.category.value.toUpperCase();
+    const category = form.category.value.toLowerCase();
     const quantity = Number(form.quantity.value);
     const image = form.image.value;
     const description = form.description.value;
@@ -40,13 +40,17 @@ const UpdateBook = () => {
       tags,
     };
     console.log("geting updated book", updatedBook);
-    fetch(`http://localhost:5000/books?id=${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedBook),
-    })
+    fetch(
+      `https://bookbytedc-server.vercel.app
+/books?id=${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedBook),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

@@ -15,7 +15,8 @@ const Details = () => {
   console.log("getting params", params.id);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/${params.id}`)
+    fetch(`https://bookbytedc-server.vercel.app
+/${params.id}`)
       .then((res) => res.json())
       .then((data) => {
         setBook(data);
@@ -45,11 +46,13 @@ const Details = () => {
 
     const returningDate = document.getElementById("returningdate").value;
     console.log(borrowingDate, returningDate);
-    fetch(`http://localhost:5000/${id}`)
+    fetch(`https://bookbytedc-server.vercel.app
+/${id}`)
       .then((res) => res.json())
       .then((data) => {
         fetch(
-          `http://localhost:5000/books/borrowed/allbooks?email=${user.email}`
+          `https://bookbytedc-server.vercel.app
+/books/borrowed/allbooks?email=${user.email}`
         )
           .then((res) => res.json())
           .then((allBorrowedBooks) => {
@@ -65,7 +68,8 @@ const Details = () => {
                 returningDate: returningDate,
               };
               fetch(
-                `http://localhost:5000/books/borrowed/allbooks?id=${data._id}`,
+                `https://bookbytedc-server.vercel.app
+/books/borrowed/allbooks?id=${data._id}`,
                 {
                   method: "POST",
                   headers: {
@@ -127,6 +131,7 @@ const Details = () => {
         </div> */}
         {/* Open the modal using document.getElementById('ID').showModal() method */}
         <button
+          disabled={`${quantity == 0 ? "disabled" : ""}`}
           className="btn"
           onClick={() => document.getElementById("my_modal_5").showModal()}
         >
@@ -175,16 +180,22 @@ const Details = () => {
                 />
               </div>
             </div>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button
-                  onClick={() => handleBorrowBook(_id)}
-                  className="btn-primary btn"
-                >
-                  Borrow
-                </button>
-              </form>
+            <div className="flex gap-4 mx-auto">
+              <div className="modal-action">
+                <form method="dialog">
+                  <button
+                    onClick={() => handleBorrowBook(_id)}
+                    className="btn-primary btn"
+                  >
+                    Borrow
+                  </button>
+                </form>
+              </div>
+              <div className="modal-action">
+                <form method="dialog">
+                  <button className="btn">Close</button>
+                </form>
+              </div>
             </div>
           </div>
         </dialog>

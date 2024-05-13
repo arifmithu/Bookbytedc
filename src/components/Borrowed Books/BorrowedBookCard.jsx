@@ -18,9 +18,13 @@ const BorrowedBookCard = ({ book, borrowedBooks, setBorrowedBooks }) => {
     returningDate,
   } = book;
   const handleReturnBook = (id) => {
-    fetch(`http://localhost:5000/deleteBorrowedBook?id=${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://bookbytedc-server.vercel.app
+/deleteBorrowedBook?id=${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

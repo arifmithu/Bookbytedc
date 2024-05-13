@@ -25,11 +25,11 @@ const CategoryCard = ({ category }) => {
               ? "https://i.ibb.co/5LD48vN/woman-8734993-1920.jpg"
               : "https://pixabay.com/photos/fantasy-beach-children-jellyfish-3281842/"
           }
-          alt="Shoes"
+          alt="Book image"
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{category}</h2>
+        <h2 className="card-title">{category.toUpperCase()}</h2>
         <p>Browse all the books of {category} category.</p>
         {/* <div className="justify-end card-actions">
           <button className="btn btn-primary">Buy Now</button>
