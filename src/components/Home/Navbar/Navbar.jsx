@@ -9,7 +9,7 @@ const Navbar = () => {
   const [theme, setTheme] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const { user, logout } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
     const localTheme = localStorage.getItem("theme") ?? "light";
@@ -83,7 +83,7 @@ const Navbar = () => {
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -103,21 +103,21 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className="flex items-center text-3xl gap-2">
+        <div className="flex items-center gap-2 text-3xl">
           <GiBookAura className="text-blue-500" />
           <a className="font-bold gradient">BookByte DC</a>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+      <div className="hidden navbar-center lg:flex">
+        <ul className="px-1 menu menu-horizontal">{links}</ul>
       </div>
 
       {/* right section */}
-      <div className="navbar-end flex gap-3">
+      <div className="flex gap-3 navbar-end">
         {user ? (
-          <div className="flex flex-col relative">
+          <div className="relative flex flex-col">
             <div className="avatar online" title={user?.displayName}>
-              <div className="w-14 rounded-full">
+              <div className="rounded-full w-14">
                 <img src={user?.photoURL} />
               </div>
             </div>
@@ -138,13 +138,13 @@ const Navbar = () => {
           </div>
         )}
         {/* theme controller */}
-        <label className="cursor-pointer grid place-items-center">
+        <label className="grid cursor-pointer place-items-center">
           <input
             type="checkbox"
             value="synthwave"
             checked={isChecked}
             onChange={handleThemeChange}
-            className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
+            className="col-span-2 col-start-1 row-start-1 toggle theme-controller bg-base-content"
           />
           <svg
             className="col-start-1 row-start-1 stroke-base-100 fill-base-100"

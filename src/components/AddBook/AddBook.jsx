@@ -8,8 +8,8 @@ const AddBook = () => {
     const form = e.target;
     const bookName = form.bookName.value;
     const authorName = form.authorName.value;
-    const category = form.category.value;
-    const quantity = form.quantity.value;
+    const category = form.category.value.toUpperCase();
+    const quantity = Number(form.quantity.value);
     const image = form.image.value;
     const description = form.description.value;
     const rating = Number(form.rating.value);

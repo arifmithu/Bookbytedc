@@ -11,7 +11,7 @@ const BookCategories = () => {
       .then((data) => {
         const categories = [];
         data.map((book) => {
-          const category = book.category;
+          const category = book.category.toUpperCase();
           if (!categories.includes(category)) {
             categories.push(category);
           }
@@ -19,7 +19,7 @@ const BookCategories = () => {
         setAllCategories(categories);
       });
   }, []);
-  console.log(allCategories);
+  // console.log(allCategories);
   return (
     <div className="mx-5 md:mx-[50px] lg:mx-[80px] my-5 md:my-8 lg:my-12">
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">

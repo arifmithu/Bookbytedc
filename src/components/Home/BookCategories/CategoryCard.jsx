@@ -10,7 +10,7 @@ const CategoryCard = ({ category }) => {
   return (
     <div
       onClick={() => handleBooksByCategory(category)}
-      className="shadow-xl card bg-base-100 image-full"
+      className="shadow-xl card bg-base-100 image-full hover:cursor-pointer"
     >
       <figure>
         <img
@@ -31,9 +31,9 @@ const CategoryCard = ({ category }) => {
       <div className="card-body">
         <h2 className="card-title">{category}</h2>
         <p>Browse all the books of {category} category.</p>
-        <div className="justify-end card-actions">
+        {/* <div className="justify-end card-actions">
           <button className="btn btn-primary">Buy Now</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

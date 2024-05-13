@@ -20,6 +20,8 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import BooksByCategory from "./components/BooksByCategory/BooksByCategory.jsx";
+import Details from "./components/Details/Details.jsx";
+import BorrowedBooks from "./components/Borrowed Books/BorrowedBooks.jsx";
 
 const router = createBrowserRouter([
   {
@@ -56,10 +58,23 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/borrowedBooks",
+        element: (
+          <PrivateRoute>
+            <BorrowedBooks></BorrowedBooks>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/books/:category",
         element: <BooksByCategory></BooksByCategory>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/books/${params.category}`),
+      },
+      {
+        path: "/:id",
+        element: <Details></Details>,
+        // loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
       },
     ],
   },
