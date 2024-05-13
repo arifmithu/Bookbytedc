@@ -4,14 +4,14 @@ import "../../index.css";
 
 const Footer = () => {
   return (
-    <div className="mt-5 ">
+    <div className="mt-5 border-t shadow-2xl">
       <footer className="bg-white dark:bg-gray-600">
         <div className="container py-6 mx-auto">
           <div className="lg:flex">
             {/* left section */}
-            <div className="w-full mx-auto pl-24 lg:pl-0 lg:w-2/5 lg:text-left">
+            <div className="w-full pl-24 mx-auto lg:pl-0 lg:w-2/5 lg:text-left">
               <div className="px-6 mx-auto">
-                <div className="flex items-center text-3xl gap-2">
+                <div className="flex items-center gap-2 text-3xl">
                   <GiBookAura className="text-blue-500" />
                   <a className="font-bold gradient">BookByte DC</a>
                 </div>
@@ -71,7 +71,7 @@ const Footer = () => {
             </div>
             {/* right section */}
             <div className="mt-6 lg:mt-0 lg:flex-1">
-              <div className="grid grid-cols-2 w-full text-center lg:text-left gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              <div className="grid w-full grid-cols-2 gap-6 text-center lg:text-left sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {/* about */}
                 <div className="lg:-ml-8">
                   <h3 className="text-gray-700 uppercase dark:text-white">
