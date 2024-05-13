@@ -23,7 +23,7 @@ const BookCard = ({ book }) => {
         ></Rating>
         <p>Category : {category}</p>
         <div className="card-actions">
-          <Link to={`/update/:${_id}`} className="btn btn-primary">
+          <Link to={`/update/${_id}`} className="btn btn-primary">
             Update Book
           </Link>
         </div>

@@ -22,6 +22,7 @@ import {
 import BooksByCategory from "./components/BooksByCategory/BooksByCategory.jsx";
 import Details from "./components/Details/Details.jsx";
 import BorrowedBooks from "./components/Borrowed Books/BorrowedBooks.jsx";
+import UpdateBook from "./components/UpdateBook/UpdateBook.jsx";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,11 @@ const router = createBrowserRouter([
         path: "/:id",
         element: <Details></Details>,
         // loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
+      },
+      {
+        path: "/update/:id",
+        element: <UpdateBook></UpdateBook>,
+        loader: ({ params }) => fetch(`http://localhost:5000/${params.id}`),
       },
     ],
   },
