@@ -29,7 +29,7 @@ const BorrowedBookCard = ({ book, borrowedBooks, setBorrowedBooks }) => {
       .then((data) => {
         console.log(data);
         if (data.deletedCount > 0) {
-          Swal.fire("Deleted from borrow list successful.");
+          Swal.fire("Book return successful.");
           const remaining = borrowedBooks.filter((book) => book._id != id);
           setBorrowedBooks(remaining);
           console.log("remaining book", remaining);

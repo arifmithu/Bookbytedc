@@ -29,6 +29,10 @@ const UpdateBook = () => {
     const description = form.description.value;
     const rating = Number(form.rating.value);
     const tags = form.tags.value;
+    if (quantity < 0) {
+      Swal.fire("Quantity can't be negative");
+      return;
+    }
     const updatedBook = {
       bookName,
       authorName,
