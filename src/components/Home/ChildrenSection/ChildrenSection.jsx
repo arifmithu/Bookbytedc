@@ -34,12 +34,14 @@ const ChildrenSection = () => {
               We help children to <span className="text-blue-500">Grow</span>
             </h1>
           </Fade>
-          <p className="mt-5">
-            We play a crucial role in providing quality education to children.
-            With access to a diverse range of books, resources, and educational
-            programs, libraries nurture a love for reading, foster curiosity,
-            and support academic success.
-          </p>
+          <Slide direction="right">
+            <p className="mt-5">
+              We play a crucial role in providing quality education to children.
+              With access to a diverse range of books, resources, and
+              educational programs, libraries nurture a love for reading, foster
+              curiosity, and support academic success.
+            </p>
+          </Slide>
         </div>
       </div>
     </div>
