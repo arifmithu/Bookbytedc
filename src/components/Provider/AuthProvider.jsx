@@ -32,7 +32,9 @@ const AuthProvider = ({ children }) => {
           .post(
             "https://bookbytedc-server.vercel.app/user/jwt/token/logout",
             loggedUser,
-            { withCredentials: true }
+            {
+              withCredentials: true,
+            }
           )
           .then((res) => {
             console.log(res.data);

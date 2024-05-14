@@ -37,6 +37,7 @@ const Details = () => {
   } = book;
 
   const handleBorrowBook = (id) => {
+    console.log("entered function");
     const borrowDate = new Date();
     const day = String(borrowDate.getDate()).padStart(2, "0");
     var month = String(borrowDate.getMonth() + 1).padStart(2, "0");
@@ -44,12 +45,13 @@ const Details = () => {
     const borrowingDate = day + "-" + month + "-" + year;
 
     const returningDate = document.getElementById("returningdate").value;
-    console.log(borrowingDate, returningDate);
     fetch(`https://bookbytedc-server.vercel.app/${id}`)
       .then((res) => res.json())
       .then((data) => {
+        // console.log(data);
         fetch(
-          `https://bookbytedc-server.vercel.app/books/borrowed/allbooks?email=${user.email}`
+          `https://bookbytedc-server.vercel.app/books/borrowed/allbooks?email=${user.email}`,
+          { credentials: "include" }
         )
           .then((res) => res.json())
           .then((allBorrowedBooks) => {
@@ -145,6 +147,7 @@ const Details = () => {
                   type="text"
                   name="authorName"
                   value={user.displayName}
+                  readOnly
                   placeholder="Harper Lee"
                   className="block w-full px-5 py-3 mt-2 mb-4 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
@@ -157,6 +160,7 @@ const Details = () => {
                 <input
                   type="email"
                   value={user.email}
+                  readOnly
                   name="category"
                   placeholder="fiction"
                   className="block w-full px-5 py-3 mt-2 mb-4 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
