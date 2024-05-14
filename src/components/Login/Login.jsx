@@ -60,16 +60,16 @@ const Login = () => {
   };
   return (
     <div className=" min-h-screen bg-gradient-to-r from-violet-500 to-fuchsia-500 mx-5 md:mx-12 lg:mx-[80px] my-5 md:my-6 lg:my-8 rounded-lg">
-      <div className="hero-content flex-col lg:flex lg:flex-row gap-10">
-        <div className="text-center lg:text-left w-full lg:w-1/2 ">
+      <div className="flex-col gap-10 hero-content lg:flex lg:flex-row">
+        <div className="w-full text-center lg:text-left lg:w-1/2 ">
           <img
             src="https://i.ibb.co/WFg2S2z/desk-3491990-1920.png"
             alt=""
             className="p-10"
           />
         </div>
-        <div className="card shrink-0 max-w-sm shadow-2xl bg-base-100 w-full lg:w-1/2">
-          <h1 className="text-5xl font-bold text-center mt-5">Login now!</h1>
+        <div className="w-full max-w-sm shadow-2xl card shrink-0 bg-base-100 lg:w-1/2">
+          <h1 className="mt-5 text-5xl font-bold text-center">Login now!</h1>
           <form className="card-body" onSubmit={handleLogin}>
             <div className="form-control">
               <label className="label">
@@ -100,7 +100,7 @@ const Login = () => {
                 </a>
               </label>
             </div>
-            <div className="form-control mt-6">
+            <div className="mt-6 form-control">
               <button type="submit" className="btn btn-primary">
                 Login
               </button>
@@ -112,7 +112,7 @@ const Login = () => {
             onClick={googleLogin}
             class="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 w-5/6 mx-auto "
           >
-            <svg class="w-6 h-6 mx-2" viewBox="0 0 40 40">
+            <svg className="w-6 h-6 mx-2" viewBox="0 0 40 40">
               <path
                 d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.045 27.2142 24.3525 30 20 30C14.4775 30 10 25.5225 10 20C10 14.4775 14.4775 9.99999 20 9.99999C22.5492 9.99999 24.8683 10.9617 26.6342 12.5325L31.3483 7.81833C28.3717 5.04416 24.39 3.33333 20 3.33333C10.7958 3.33333 3.33335 10.7958 3.33335 20C3.33335 29.2042 10.7958 36.6667 20 36.6667C29.2042 36.6667 36.6667 29.2042 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z"
                 fill="#FFC107"
@@ -131,19 +131,19 @@ const Login = () => {
               />
             </svg>
 
-            <span class="mx-2">Login with Google</span>
+            <span className="mx-2">Login with Google</span>
           </button>
           {/* github login */}
           <button
             onClick={githubLogin}
-            class="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 w-5/6 mx-auto "
+            className="flex items-center justify-center w-5/6 px-6 py-3 mx-auto mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 "
           >
-            <FaGithub class="w-6 h-6 mx-2" />
-            <span class="mx-2">Login with Github</span>
+            <FaGithub className="w-6 h-6 mx-2" />
+            <span className="mx-2">Login with Github</span>
           </button>
           <p className="mx-auto mb-5 font-bold">
             Don't have an account?{" "}
-            <span className="text-blue-500 font-bold">
+            <span className="font-bold text-blue-500">
               <Link to={"/register"}>Register</Link>
             </span>
           </p>

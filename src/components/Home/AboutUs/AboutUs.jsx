@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Fade, Slide } from "react-awesome-reveal";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { GiBookAura } from "react-icons/gi";
 
 const AboutUs = () => {
   const { user } = useContext(AuthContext);
@@ -68,7 +69,8 @@ const AboutUs = () => {
             <div className="stat-figure text-secondary">
               <div className="avatar online">
                 <div className="w-16 rounded-full">
-                  <img src={user.photoURL} />
+                  <img src=" https://i.ibb.co/b5DMkRt/account-880780-1920.png" />
+                  {/* <GiBookAura className="text-blue-500" /> */}
                 </div>
               </div>
             </div>
