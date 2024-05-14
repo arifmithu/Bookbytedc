@@ -110,7 +110,7 @@ const Login = () => {
           {/* google login */}
           <button
             onClick={googleLogin}
-            class="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 w-5/6 mx-auto "
+            className="flex items-center justify-center w-5/6 px-6 py-3 mx-auto mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 "
           >
             <svg className="w-6 h-6 mx-2" viewBox="0 0 40 40">
               <path

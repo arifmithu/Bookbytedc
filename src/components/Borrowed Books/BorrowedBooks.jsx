@@ -7,8 +7,11 @@ const BorrowedBooks = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`https://bookbytedc-server.vercel.app
-/books/borrowed/allbooks?email=${user.email}`)
+    fetch(
+      `https://bookbytedc-server.vercel.app
+/books/borrowed/allbooks?email=${user.email}`,
+      { Credential: "include" }
+    )
       .then((res) => res.json())
       .then((data) => {
         setBorrowedBooks(data);
