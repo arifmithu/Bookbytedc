@@ -68,8 +68,7 @@ const Details = () => {
                 returningDate: returningDate,
               };
               fetch(
-                `https://bookbytedc-server.vercel.app
-/books/borrowed/allbooks?id=${data._id}`,
+                `https://bookbytedc-server.vercel.app/books/borrowed/allbooks?id=${data._id}`,
                 {
                   method: "POST",
                   headers: {

@@ -8,8 +8,7 @@ const BorrowedBooks = () => {
 
   useEffect(() => {
     fetch(
-      `https://bookbytedc-server.vercel.app
-/books/borrowed/allbooks?email=${user.email}`,
+      `https://bookbytedc-server.vercel.app/books/borrowed/allbooks?email=${user.email}`,
       { Credential: "include" }
     )
       .then((res) => res.json())
