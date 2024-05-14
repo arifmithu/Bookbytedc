@@ -6,7 +6,9 @@ const FeaturedBooks = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("https://bookbytedc-server.vercel.app/books")
+    fetch("https://bookbytedc-server.vercel.app/books", {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);

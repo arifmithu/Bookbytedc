@@ -57,7 +57,7 @@ const AllBooks = () => {
       </div>
       <div className="mt-5 text-end md:mt-8 lg:mt-12">
         <div className={`flex justify-end mb-5 text-4xl `}>
-          <button
+          {/* <button
             onClick={handleCardView}
             className={`px-5 py-2 border rounded-l-full ${
               viewStyle == "cardView" ? "bg-green-300" : "bg-gray-400"
@@ -72,21 +72,60 @@ const AllBooks = () => {
             }`}
           >
             <MdTableRows />
-          </button>
+          </button> */}
         </div>
-        <div>
-          <button
-            onClick={handleAvailableBooks}
-            className="mr-5 text-xl btn btn-accent"
-          >
-            Show Available Books
-          </button>
-          <button
-            onClick={handleShowAllBooks}
-            className="text-xl btn btn-primary"
-          >
-            Show All Books
-          </button>
+        <div className="flex items-center justify-between">
+          {/* dropdown */}
+          <div className="dropdown">
+            <div
+              tabIndex={0}
+              role="button"
+              className="m-1 text-xl btn btn-accent"
+            >
+              View Style
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[10] menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li className="mb-4">
+                <button
+                  onClick={handleCardView}
+                  className={`px-5 py-2 border ${
+                    viewStyle == "cardView" ? "bg-green-300" : "bg-gray-400"
+                  }`}
+                >
+                  <FaAddressCard className="text-5xl" />
+                  <span className="text-xl">Card View</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={handleListView}
+                  className={`px-5 py-2 border ${
+                    viewStyle == "listView" ? "bg-green-300" : "bg-gray-400"
+                  }`}
+                >
+                  <MdTableRows className="text-5xl" />
+                  <span className="text-xl">Table View</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <button
+              onClick={handleAvailableBooks}
+              className="mr-5 text-xl btn btn-accent"
+            >
+              Show Available Books
+            </button>
+            <button
+              onClick={handleShowAllBooks}
+              className="text-xl btn btn-primary"
+            >
+              Show All Books
+            </button>
+          </div>
         </div>
       </div>
       {viewStyle == "cardView" ? (

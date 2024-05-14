@@ -22,7 +22,7 @@ const AboutUs = () => {
       {/* stats */}
 
       <div className="pb-8 mt-6 text-center">
-        <div className="shadow stats">
+        <div className="w-full shadow stats text-wrap">
           <div className="stat">
             <div className="stat-figure text-primary">
               <svg
