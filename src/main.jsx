@@ -76,13 +76,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/:id",
-        element: <Details></Details>,
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
         // loader: ({ params }) => fetch(`https://bookbytedc-server.vercel.app
         // /${params.id}`),
       },
       {
         path: "/update/:id",
-        element: <UpdateBook></UpdateBook>,
+        element: (
+          <PrivateRoute>
+            <UpdateBook></UpdateBook>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`https://bookbytedc-server.vercel.app/${params.id}`),
       },
