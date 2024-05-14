@@ -23,9 +23,12 @@ const CategoryCard = ({ category }) => {
               ? "https://i.ibb.co/L0rtc7j/et-2006631-1920.jpg"
               : category.toLowerCase() == "fantasy"
               ? "https://i.ibb.co/5LD48vN/woman-8734993-1920.jpg"
-              : "https://pixabay.com/photos/fantasy-beach-children-jellyfish-3281842/"
+              : category.toLowerCase() == "history"
+              ? "https://i.ibb.co/SRptRXs/images-3.jpg"
+              : "https://i.ibb.co/FmwnrY0/avenue-815297-1920.jpg"
           }
           alt="Book image"
+          className="w-full"
         />
       </figure>
       <div className="card-body">

@@ -71,7 +71,7 @@ const UpdateBook = () => {
             className="hidden bg-cover lg:block lg:w-2/5"
             style={{
               backgroundImage:
-                "url('https://i.ibb.co/KbwT3vX/books-2546038-1920.jpg')",
+                "url('https://i.ibb.co/JjvpxLV/pexels-lilartsy-1394646.jpg')",
             }}
           ></div>
           {/* form section */}
