@@ -15,8 +15,7 @@ const Details = () => {
   console.log("getting params", params.id);
 
   useEffect(() => {
-    fetch(`https://bookbytedc-server.vercel.app
-/${params.id}`)
+    fetch(`https://bookbytedc-server.vercel.app/${params.id}`)
       .then((res) => res.json())
       .then((data) => {
         setBook(data);
@@ -46,13 +45,11 @@ const Details = () => {
 
     const returningDate = document.getElementById("returningdate").value;
     console.log(borrowingDate, returningDate);
-    fetch(`https://bookbytedc-server.vercel.app
-/${id}`)
+    fetch(`https://bookbytedc-server.vercel.app/${id}`)
       .then((res) => res.json())
       .then((data) => {
         fetch(
-          `https://bookbytedc-server.vercel.app
-/books/borrowed/allbooks?email=${user.email}`
+          `https://bookbytedc-server.vercel.app/books/borrowed/allbooks?email=${user.email}`
         )
           .then((res) => res.json())
           .then((allBorrowedBooks) => {

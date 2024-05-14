@@ -44,17 +44,13 @@ const UpdateBook = () => {
       tags,
     };
     console.log("geting updated book", updatedBook);
-    fetch(
-      `https://bookbytedc-server.vercel.app
-/books?id=${_id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedBook),
-      }
-    )
+    fetch(`https://bookbytedc-server.vercel.app/books?id=${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedBook),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
