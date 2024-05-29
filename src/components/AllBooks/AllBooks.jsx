@@ -6,6 +6,7 @@ import BookCard from "./BookCard";
 import { Fade, Slide } from "react-awesome-reveal";
 import { FaAddressCard } from "react-icons/fa";
 import { MdTableRows } from "react-icons/md";
+import SearchBook from "./SearchBook";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
@@ -56,23 +57,8 @@ const AllBooks = () => {
         </Slide>
       </div>
       <div className="mt-5 text-end md:mt-8 lg:mt-12">
-        <div className={`flex justify-end mb-5 text-4xl `}>
-          {/* <button
-            onClick={handleCardView}
-            className={`px-5 py-2 border rounded-l-full ${
-              viewStyle == "cardView" ? "bg-green-300" : "bg-gray-400"
-            }`}
-          >
-            <FaAddressCard />
-          </button>
-          <button
-            onClick={handleListView}
-            className={`px-5 py-2 border rounded-r-full ${
-              viewStyle == "listView" ? "bg-green-300" : "bg-gray-400"
-            }`}
-          >
-            <MdTableRows />
-          </button> */}
+        <div className={`flex lg:justify-end  mb-5 text-4xl `}>
+          <SearchBook setShowBooks={setShowBooks}></SearchBook>
         </div>
         <div className="flex items-center justify-between">
           {/* dropdown */}
@@ -80,6 +66,7 @@ const AllBooks = () => {
             <div
               tabIndex={0}
               role="button"
+              disabled={showBooks.length == 0}
               className="m-1 text-xl btn btn-accent"
             >
               View Style
@@ -128,6 +115,9 @@ const AllBooks = () => {
           </div>
         </div>
       </div>
+      {showBooks.length == 0 && (
+        <p className="p-10 mt-10 text-center text-7xl">No Book Available</p>
+      )}
       {viewStyle == "cardView" ? (
         <div className="grid grid-cols-1 gap-5 mt-5 rounded-lg md:grid-cols-2 lg:grid-cols-3">
           {showBooks.map((book, index) => (
