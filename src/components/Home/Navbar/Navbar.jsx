@@ -9,7 +9,7 @@ const Navbar = () => {
   const [theme, setTheme] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const { user, logout } = useContext(AuthContext);
-  // console.log(user);
+  console.log("user in nav", user);
 
   useEffect(() => {
     const localTheme = localStorage.getItem("theme") ?? "light";

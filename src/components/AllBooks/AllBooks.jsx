@@ -1,17 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { Link, redirect, useLoaderData } from "react-router-dom";
 import BookCard from "./BookCard";
 import { Fade, Slide } from "react-awesome-reveal";
 import { FaAddressCard } from "react-icons/fa";
 import { MdTableRows } from "react-icons/md";
 import SearchBook from "./SearchBook";
+import Swal from "sweetalert2";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
   const [showBooks, setShowBooks] = useState([]);
   const [viewStyle, setViewStyle] = useState("cardView");
+  const [upateBook, setUpateBook] = useState({});
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     fetch("https://bookbytedc-server.vercel.app/books", {
@@ -37,6 +40,33 @@ const AllBooks = () => {
   };
   const handleListView = () => {
     setViewStyle("listView");
+  };
+  const handleUpdateBook = async (bookId) => {
+    try {
+      await fetch(`https://bookbytedc-server.vercel.app/${bookId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setUpateBook(data);
+        });
+    } catch (error) {
+      Swal.fire({
+        title: "Request Failed!",
+        text: "Something went wrong.",
+        icon: "error",
+      });
+      setUpateBook({ email: "" });
+    }
+    if (
+      user.email != "mithunospace@gmail.com" &&
+      user.email != "mdarifhossainmithu@gmail.com" &&
+      user.email != upateBook.email
+    ) {
+      Swal.fire({
+        title: "Unauthorized!",
+        text: "You can update your books only",
+        icon: "warning",
+      });
+    } else redirect(`/update/${bookId}`);
   };
   return (
     <div className="mx-5 md-mx[50px] lg:mx-[80px] rounded-lg mb-12 mt-20">
@@ -169,12 +199,12 @@ const AllBooks = () => {
                     </td>
                     <td>{book.rating}</td>
                     <th>
-                      <Link
-                        to={`/update/${book._id}`}
+                      <button
+                        onClick={() => handleUpdateBook(book._id)}
                         className="btn btn-primary"
                       >
                         Update Book
-                      </Link>
+                      </button>
                     </th>
                   </tr>
                 ))}

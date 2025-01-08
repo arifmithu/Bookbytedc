@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Rating from "react-rating";
 import { FaRegStar } from "react-icons/fa";
 import { FaStar } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const BookCardByCategory = ({ book }) => {
   const { _id, bookName, authorName, image, category, rating } = book;
+
   return (
     <div className="border border-red-300 shadow-xl card bg-base-100">
       <figure className="px-10 pt-10 ">

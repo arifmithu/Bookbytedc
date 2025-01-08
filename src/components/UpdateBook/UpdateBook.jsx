@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import { FaBookMedical } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const UpdateBook = () => {
   const book = useLoaderData();
-  console.log(book);
   const {
     _id,
     bookName,
@@ -16,6 +16,7 @@ const UpdateBook = () => {
     quantity,
     description,
     tags,
+    email,
   } = book;
 
   const handleUpdate = (e) => {
@@ -42,6 +43,7 @@ const UpdateBook = () => {
       description,
       rating,
       tags,
+      email,
     };
     console.log("geting updated book", updatedBook);
     fetch(`https://bookbytedc-server.vercel.app/books?id=${_id}`, {

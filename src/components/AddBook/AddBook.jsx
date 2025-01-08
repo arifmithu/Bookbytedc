@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 import { FaBookMedical } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const AddBook = () => {
+  const { user } = useContext(AuthContext);
   const handleAddBook = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -27,6 +29,7 @@ const AddBook = () => {
       description,
       rating,
       tags,
+      email: user.email,
     };
     fetch("https://bookbytedc-server.vercel.app/books", {
       method: "POST",
