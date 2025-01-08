@@ -1,19 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
-import { Link, redirect, useLoaderData } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import BookCard from "./BookCard";
 import { Fade, Slide } from "react-awesome-reveal";
 import { FaAddressCard } from "react-icons/fa";
 import { MdTableRows } from "react-icons/md";
 import SearchBook from "./SearchBook";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
   const [showBooks, setShowBooks] = useState([]);
   const [viewStyle, setViewStyle] = useState("cardView");
-  const [upateBook, setUpateBook] = useState({});
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -43,31 +41,37 @@ const AllBooks = () => {
   };
   const handleUpdateBook = async (bookId) => {
     try {
-      await fetch(`https://bookbytedc-server.vercel.app/${bookId}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setUpateBook(data);
+      const response = await fetch(
+        `https://bookbytedc-server.vercel.app/${bookId}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch book details");
+      }
+      const bookData = await response.json();
+
+      if (
+        user.email !== "mithunospace@gmail.com" &&
+        user.email !== "mdarifhossainmithu@gmail.com" &&
+        user.email !== bookData.email
+      ) {
+        Swal.fire({
+          title: "Unauthorized!",
+          text: "You can update only your books.",
+          icon: "warning",
         });
+        return;
+      }
+
+      window.location.href = `/update/${bookId}`;
     } catch (error) {
       Swal.fire({
         title: "Request Failed!",
-        text: "Something went wrong.",
+        text: error.message || "Something went wrong.",
         icon: "error",
       });
-      setUpateBook({ email: "" });
     }
-    if (
-      user.email != "mithunospace@gmail.com" &&
-      user.email != "mdarifhossainmithu@gmail.com" &&
-      user.email != upateBook.email
-    ) {
-      Swal.fire({
-        title: "Unauthorized!",
-        text: "You can update your books only",
-        icon: "warning",
-      });
-    } else redirect(`/update/${bookId}`);
   };
+
   return (
     <div className="mx-5 md-mx[50px] lg:mx-[80px] rounded-lg mb-12 mt-20">
       <div>

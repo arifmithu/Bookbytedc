@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import { FaBookMedical } from "react-icons/fa";
 import Swal from "sweetalert2";
